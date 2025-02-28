@@ -3,13 +3,13 @@ const { spawn } = require('child_process');
 
 let serverProcess;
 
-beforeAll(async () => {
+beforeAll((done) => {
   serverProcess = spawn('node', ['index.js']);
-  await new Promise((resolve) => setTimeout(resolve, 2000)); // Give server 2 seconds to start
+  setTimeout(done, 3000); // Wait 3 seconds to make sure the server is running
 });
 
 afterAll(() => {
-  serverProcess.kill(); // Kill the server after tests
+  serverProcess.kill(); // Gracefully shutdown server
 });
 
 const options = {
@@ -19,19 +19,22 @@ const options = {
   method: 'GET',
 };
 
-test('Server should respond with All Hail CI/CD King Mahendra!', async () => {
-  const data = await new Promise((resolve, reject) => {
-    const req = http.request(options, (res) => {
-      let response = '';
-      res.on('data', (chunk) => {
-        response += chunk;
-      });
-      res.on('end', () => resolve(response));
+test('Server should respond with All Hail CI/CD King Mahendra!', (done) => {
+  const req = http.request(options, (res) => {
+    let data = '';
+    res.on('data', (chunk) => {
+      data += chunk;
     });
-
-    req.on('error', reject);
-    req.end();
+    res.on('end', () => {
+      expect(data).toBe('All Hail CI/CD King Mahendra\n');
+      done();
+    });
   });
 
-  expect(data).toBe('All Hail CI/CD King Mahendra\n');
+  req.on('error', (err) => {
+    console.error(err);
+    done(err);
+  });
+
+  req.end();
 });
