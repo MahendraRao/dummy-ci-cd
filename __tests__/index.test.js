@@ -27,8 +27,8 @@ test('Server should respond with All Hail CI/CD King Mahendra!', (done) => {
     });
     res.on('end', () => {
       try {
-        expect(data.trim()).toBe('All Hail CI/CD King Mahendra');
-        done();
+        expect(data.trim()).toBe('Hello, Mahendra the CI/CD KING!');
+	done();
       } catch (error) {
         done(error);
       }
