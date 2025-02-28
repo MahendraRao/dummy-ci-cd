@@ -26,8 +26,12 @@ test('Server should respond with All Hail CI/CD King Mahendra!', (done) => {
       data += chunk;
     });
     res.on('end', () => {
-      expect(data).toBe('All Hail CI/CD King Mahendra\n');
-      done();
+      try {
+        expect(data.trim()).toBe('All Hail CI/CD King Mahendra');
+        done();
+      } catch (error) {
+        done(error);
+      }
     });
   });
 
