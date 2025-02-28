@@ -2,12 +2,12 @@ const http = require('http');
 
 const options = {
   hostname: 'localhost',
-  port: 3000,
+  port: 10000,
   path: '/',
   method: 'GET',
 };
 
-test('Server should respond with Hello, CI/CD Pipeline!', (done) => {
+test('Server should respond with Hello, Mahendra the CI/CD KING!', (done) => {
   const req = http.request(options, (res) => {
     let data = '';
     res.on('data', (chunk) => {
