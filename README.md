@@ -23,7 +23,7 @@ dummy-ci-cd/
 │       └── ci-cd-pipeline.yml    # GitHub Actions pipeline
 ├── index.js                     # Node.js App
 ├── package.json                 # Dependencies & Scripts
-├── __tests__/                   # Jest Test Cases
+├── tests/                   # Jest Test Cases
 └── README.md                    # Documentation
 
 ##How to Run Locally
@@ -38,14 +38,13 @@ npm start
 npm test
 
 
-##How CI/CD Works 🚀
-• Push code to GitHu(main branch)
-�GitHub Actions automatically triggers:
+##How CI/CD Works
+1.� Push code to GitHu(main branch)
+2. GitHub Actions automatically triggers:
 	* Install dependencies
 	* Run Tests
-• If Tests Pass ✅, it deploys to Render automatically.
+3. � If Tests Pas , it deploys to Render automatically.
 
-Live URL 🔥
-
-👉 https://dummy-ci-cd.onrender.com
+##Live URL
+	*� https://dummy-ci-cd.onrender.com
 
