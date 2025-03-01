@@ -1,7 +1,7 @@
 # Dummy CI/CD Pipeline
 This project demonstrates a complete CI/CD Pipeline using GitHub Actions, Jest Testing, and Render for automated deployment.
 
-##Tech Stack¥
+##Tech StackÂ¥
 
 * Node.js
 * GitHub Actions
@@ -40,12 +40,12 @@ npm test
 
 ##How CI/CD Works
 
-1.¢Push code to GitHu(main branch)
-2.GitHub Actions automatically triggers:
+1. Push code to GitHub (main branch)
+2. GitHub Actions automatically triggers:
 	* Install dependencies
 	* Run Tests
-3.If Tests Pas , it deploys to Render automatically.
+3. If Tests Pas , it deploys to Render automatically.
 
 ##Live URL
-	*¢ https://dummy-ci-cd.onrender.com
+	*https://dummy-ci-cd.onrender.com
 
